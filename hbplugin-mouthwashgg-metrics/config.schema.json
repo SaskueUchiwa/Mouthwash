@@ -1,0 +1,10 @@
+{
+    "properties": {
+        "pushNodeInterval": {
+            "type": "number"
+        },
+        "nodeExpireTimeout": {
+            "type": "number"
+        }
+    }
+}

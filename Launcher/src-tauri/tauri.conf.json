@@ -1,0 +1,111 @@
+{
+  "build": {
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "PGG Rewritten",
+    "version": "0.0.5"
+  },
+  "tauri": {
+    "updater": {
+      "active": true,
+      "windows": {
+        "installMode": "passive",
+        "installerArgs": []
+      },
+      "endpoints": [
+        "https://jhwupengaqaqjewreahz.supabase.co/storage/v1/object/public/Downloads/launcher-release.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDUwNEFCRjc5NEJFQkJDQUQKUldTdHZPdExlYjlLVUZsNUh0NHFjT1lRSVZpbncxZzFJbmJsMFV6NFBOS0ZzU1N5eXlmRGl2WWMK"
+    },
+    "allowlist": {
+      "all": false,
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "all": false,
+        "copyFile": true,
+        "createDir": true,
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": false,
+        "renameFile": true,
+        "scope": [ "**" ],
+        "writeFile": true
+      },
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message": false,
+        "open": true,
+        "save": false
+      },
+      "shell": {
+        "all": false,
+        "execute": true,
+        "open": ".+",
+        "scope": [{
+          "name": "../external/depot-downloader",
+          "sidecar": true,
+          "args": true
+        },{
+          "name": "../external/legendary",
+          "sidecar": true,
+          "args": true
+        }, {
+          "cmd": "powershell",
+          "name": "powershell",
+          "args": true
+        }, {
+          "cmd": "cmd",
+          "name": "cmd",
+          "args": true
+        }],
+        "sidecar": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "gg.polus.rewritten",
+      "icon": [
+        "icons/polus128x128.png",
+        "icons/polus64x64.png",
+        "icons/polus32x32.png",
+        "icons/polus32x32.ico"
+      ],
+      "externalBin": [
+        "../external/legendary",
+        "../external/depot-downloader"
+      ]
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Polus.GG: Rewritten",
+        "width": 800,
+        "height": 600,
+        "minHeight": 600,
+        "minWidth": 800
+      }
+    ]
+  },
+  "plugins": {
+    "shell": {
+      "open": ".+"
+    }
+  }
+}

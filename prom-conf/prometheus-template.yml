@@ -1,0 +1,43 @@
+global:
+  [ scrape_interval: <duration> | default = 1m ]
+  [ scrape_timeout: <duration> | default = 10s ]
+  [ evaluation_interval: <duration> | default = 1m ]
+
+  external_labels:
+    [ <labelname>: <labelvalue> ... ]
+
+  [ query_log_file: <string> ]
+  [ body_size_limit: <size> | default = 0 ]
+  [ sample_limit: <int> | default = 0 ]
+  [ label_limit: <int> | default = 0 ]
+  [ label_name_length_limit: <int> | default = 0 ]
+  [ label_value_length_limit: <int> | default = 0 ]
+  [ target_limit: <int> | default = 0 ]
+
+rule_files:
+  [ - <filepath_glob> ... ]
+
+scrape_config_files:
+  [ - <filepath_glob> ... ]
+
+scrape_configs:
+  [ - <scrape_config> ... ]
+
+alerting:
+  alert_relabel_configs:
+    [ - <relabel_config> ... ]
+  alertmanagers:
+    [ - <alertmanager_config> ... ]
+
+remote_write:
+  [ - <remote_write> ... ]
+
+remote_read:
+  [ - <remote_read> ... ]
+
+storage:
+  [ tsdb: <tsdb> ]
+  [ exemplars: <exemplars> ]
+
+tracing:
+  [ <tracing_config> ]

@@ -1,0 +1,26 @@
+{
+    "name": "hbplugin-mouthwashgg-auth",
+    "license": "SSPL-1.0",
+    "packageManager": "yarn@3.0.0-rc.13",
+    "main": "./dist/index.js",
+    "types": "./src/index.ts",
+    "private": true,
+    "scripts": {
+        "build": "tsc -p ./"
+    },
+    "devDependencies": {
+        "@types/got": "^9.6.12",
+        "@types/node": "latest",
+        "@types/uuid": "^8.3.1",
+        "typescript": "latest"
+    },
+    "dependencies": {
+        "@skeldjs/events": "workspace:*",
+        "@skeldjs/hindenburg": "workspace:*",
+        "dotenv": "^16.3.1",
+        "mouthwash-types": "workspace:*",
+        "reflect-metadata": "^0.1.13",
+        "undici": "^5.23.0",
+        "uuid": "^8.3.2"
+    }
+}

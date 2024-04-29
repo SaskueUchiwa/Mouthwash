@@ -1,0 +1,33 @@
+{
+  "name": "@skeldjs/client",
+  "version": "2.14.35",
+  "main": "./dist/index.js",
+  "types": "./index.ts",
+  "publishConfig": {
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "prepack": "yarn build"
+  },
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@types/node": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@skeldjs/constant": "workspace:*",
+    "@skeldjs/core": "workspace:*",
+    "@skeldjs/data": "workspace:*",
+    "@skeldjs/dtls": "workspace:*",
+    "@skeldjs/events": "workspace:*",
+    "@skeldjs/protocol": "workspace:*",
+    "@skeldjs/state": "workspace:*",
+    "@skeldjs/util": "workspace:*"
+  },
+  "gitHead": "bd1e345157716ff1af70479b45bd23bd977bea32",
+  "files": [
+    "dist"
+  ]
+}

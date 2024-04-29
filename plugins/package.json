@@ -1,0 +1,16 @@
+{
+    "dependencies": {
+        "hbplugin-mouthwashgg": "link:../hbplugin-mouthwashgg",
+        "hbplugin-mouthwashgg-anti-cheat": "link:../hbplugin-mouthwashgg-anti-cheat",
+        "hbplugin-mouthwashgg-api": "link:../hbplugin-mouthwashgg-api",
+        "hbplugin-mouthwashgg-auth": "link:../hbplugin-mouthwashgg-auth",
+        "hbplugin-mouthwashgg-master": "link:../hbplugin-mouthwashgg-master",
+        "hbplugin-mouthwashgg-metrics": "link:../hbplugin-mouthwashgg-metrics",
+        "hbplugin-mwgg-gamemode-hns": "link:../hbplugin-mwgg-gamemode-hns",
+        "hbplugin-mwgg-gamemode-infection": "link:../hbplugin-mwgg-gamemode-infection",
+        "hbplugin-mwgg-gamemode-town-of-polus": "link:../hbplugin-mwgg-gamemode-town-of-polus",
+        "hbplugin-mwgg-gamemode-vanilla": "link:../hbplugin-mwgg-gamemode-vanilla",
+        "hbplugin-mwgg-map-submerged": "link:../hbplugin-mwgg-map-submerged",
+        "hbplugin-mwgg-map-submerged-register": "link:../hbplugin-mwgg-map-submerged-register"
+    }
+}

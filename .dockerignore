@@ -1,0 +1,10 @@
+Launcher
+mod-bepinex-client
+assets
+bin
+depot
+
+node_modules
+.env
+.yarn/cache
+.yarn/install-state.gz

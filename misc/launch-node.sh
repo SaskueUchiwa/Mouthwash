@@ -1,0 +1,1 @@
+docker run -d -e HINDENBURG_CLI_ARGS="--socket.port $2 --socket.ip \"auto\" --nodeId $1 --plugins[hbplugin-mouthwashgg-auth].baseUrl 'http://127.0.0.1:8000'" --env-file .env --network host mouthwashgg-node

@@ -1,0 +1,24 @@
+services:
+  mwgg-postgres:
+    image: postgres
+    networks:
+      - app
+    env_file:
+      - ./.env
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Mouthwash
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data
+
+networks:
+  app:
+    external:
+      name: mwgg_app

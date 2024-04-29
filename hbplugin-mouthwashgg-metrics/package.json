@@ -1,0 +1,55 @@
+{
+  "name": "hbplugin-mouthwashgg-metrics",
+  "packageManager": "yarn@3.6.1",
+  "version": "1.0.0",
+  "description": "My cool Hindenburg plugin",
+  "private": true,
+  "keywords": [
+    "hindenburg",
+    "plugin",
+    "among us"
+  ],
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "Edward Smale",
+    "email": "essmale2005@gmail.com"
+  },
+  "files": [
+    "dist",
+    "config.schema.json"
+  ],
+  "main": "./dist/index.js",
+  "types": "./index.ts",
+  "publishConfig": {
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "publish": "yarn npm publish --access public",
+    "build": "tsc --project ./",
+    "watch": "tsc --watch --project ./",
+    "prepack": "yarn build"
+  },
+  "engines": {
+    "node": ">=14",
+    "hindenburg": "1.2.*"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/pg": "^8.10.2",
+    "typescript": "latest"
+  },
+  "plugin": {
+    "loadOrder": "last",
+    "defaultConfig": {
+      "pushNodeInterval": 10000,
+      "nodeExpireTimeout": 15000
+    }
+  },
+  "dependencies": {
+    "@skeldjs/hindenburg": "workspace:*",
+    "dotenv": "^16.3.1",
+    "hbplugin-mouthwashgg-api": "workspace:*",
+    "ioredis": "^5.3.2",
+    "pg": "^8.11.2"
+  }
+}

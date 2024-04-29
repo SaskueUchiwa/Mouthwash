@@ -1,0 +1,41 @@
+{
+  "name": "mouthwash-gg",
+  "version": "1.0.0",
+  "license": "SSPL-1.0",
+  "main": "index.js",
+  "author": "Edward Smale <essmale2005@gmail.com>",
+  "packageManager": "yarn@3.6.3",
+  "scripts": {
+    "build-all": "yarn workspaces foreach -ptv --exclude mouthwash-gg run build",
+    "watch-all": "yarn workspaces foreach -p --jobs unlimited --exclude mouthwash-gg run tsc -w -p ./",
+    "dev:master": "yarn cross-env HINDENBURG_CONFIG=config.master.json ts-node ./Hindenburg/bin/worker",
+    "dev:node": "yarn cross-env HINDENBURG_CONFIG=config.node.json ts-node ./Hindenburg/bin/worker",
+    "start:master": "yarn cross-env HINDENBURG_CONFIG=config.master.json node ./Hindenburg/dist/bin/worker",
+    "start:node": "yarn cross-env HINDENBURG_CONFIG=config.node.json node ./Hindenburg/dist/bin/worker"
+  },
+  "workspaces": [
+    "account-server",
+    "mediator",
+    "hbplugin-mouthwashgg",
+    "hbplugin-mouthwashgg-anti-cheat",
+    "hbplugin-mouthwashgg-api",
+    "hbplugin-mouthwashgg-auth",
+    "hbplugin-mouthwashgg-metrics",
+    "hbplugin-mouthwashgg-master",
+    "hbplugin-mwgg-map-submerged",
+    "hbplugin-mwgg-map-submerged-register",
+    "hbplugin-mwgg-gamemode-hns",
+    "hbplugin-mwgg-gamemode-infection",
+    "hbplugin-mwgg-gamemode-town-of-polus",
+    "hbplugin-mwgg-gamemode-vanilla",
+    "hbplugin-mwgg-gamemode-zombies",
+    "mouthwash-types",
+    "Hindenburg",
+    "SkeldJS"
+  ],
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "ts-node": "latest",
+    "typescript": "latest"
+  }
+}

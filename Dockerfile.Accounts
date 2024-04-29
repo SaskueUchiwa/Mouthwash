@@ -1,0 +1,18 @@
+FROM node:14.18.1-alpine3.14
+
+RUN apk add bash
+RUN apk add git
+
+WORKDIR /Mouthwash/account-server
+COPY ./account-server /Mouthwash/account-server
+COPY ./mediator /Mouthwash/mediator
+COPY ./.yarn /Mouthwash/.yarn
+COPY ./.yarnrc.yml /Mouthwash
+COPY ./yarn.lock /Mouthwash
+COPY ./package.json /Mouthwash
+
+EXPOSE 8000
+
+RUN cd /Mouthwash/account-server && yarn && yarn build
+
+CMD [ "yarn", "start" ]

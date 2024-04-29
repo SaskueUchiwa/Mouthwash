@@ -1,0 +1,57 @@
+services:
+  mwgg-redis:
+    image: redis
+    networks:
+      - app
+    volumes:
+      - ./redis-conf:/usr/local/etc/redis
+    ports:
+      - 6379:6379/tcp
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: "exit 0"
+
+  mwgg-prometheus-redis-exporter:
+    image: oliver006/redis_exporter
+    networks:
+      - app
+    ports:
+      - 9121:9121/tcp
+    env_file:
+      - ./.env
+    environment:
+      REDIS_ADDR: mwgg-redis:6379
+      REDIS_EXPORTER_COUNT_KEYS: ROOM:*,CLIENT:*
+    depends_on:
+      mwgg-redis:
+        condition: service_healthy
+
+  mwgg-prometheus:
+    image: prom/prometheus
+    networks:
+      - app
+    ports:
+      - 9090:9090/tcp
+    volumes:
+      - ./prom-conf:/etc/prometheus
+      - ./data/prometheus:/prometheus
+
+  mwgg-master:
+    image: mouthwashgg-master
+    build:
+      context: .
+      dockerfile: ./Dockerfile.Master
+    networks:
+      - app
+    ports:
+      - 22023:22023/udp
+    environment:
+      HINDENBURG_CLI_ARGS: "--socket.ip 'auto' --plugins[hbplugin-mouthwashgg-auth].baseUrl 'http://mwgg-account-server:8000'"
+    cpu_count: 1
+    env_file:
+      - ./.env
+
+networks:
+  app:
+    external:
+      name: mwgg_app

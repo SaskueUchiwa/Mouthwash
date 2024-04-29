@@ -1,0 +1,10 @@
+{
+    "properties": {
+        "pullNodesInterval": {
+            "type": "number"
+        },
+        "nodeExpireTimeout": {
+            "type": "number"
+        }
+    }
+}

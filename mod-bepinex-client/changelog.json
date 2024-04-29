@@ -1,0 +1,24 @@
+[
+    {
+        "version": "2023.10.3",
+        "date_released": "2023-10-03T18:20:58.066Z",
+        "release_download_bytes": 30734996,
+        "release_download_sha256": "AB548711673AD098E10BBBCD2CE948910FEE15D0AC4C1DB4743EFB65E66D5799",
+        "release_url": "https://jhwupengaqaqjewreahz.supabase.co/storage/v1/object/public/Downloads/2023.10.3.zip?t=2023-10-03T18%3A24%3A08.437Z",
+        "notes": [
+            "Draft client rewrite release"
+        ]
+    },
+
+    {
+    
+        "version": "2024.4.14",
+        "date_released": "2024-4-03T18:20:58.066Z",
+        "release_download_bytes": 30734996,
+        "release_download_sha256": "",
+        "release_url": "",
+        "notes": [
+            "Port Client to AU 2024.3.5 and some bugs + Long Mode Support (April fools)"
+        ]
+    }
+]

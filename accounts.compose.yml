@@ -1,0 +1,17 @@
+services:
+  mwgg-account-server:
+    image: mouthwashgg-account-server
+    build:
+      context: .
+      dockerfile: ./Dockerfile.Accounts
+    networks:
+      - app
+    ports:
+      - 8000:8000/tcp
+    env_file:
+      - ./account-server/.env
+
+networks:
+  app:
+    external:
+      name: mwgg_app

@@ -1,0 +1,20 @@
+export enum Color {
+    Red,
+    Blue,
+    Green,
+    Pink,
+    Orange,
+    Yellow,
+    Black,
+    White,
+    Purple,
+    Brown,
+    Cyan,
+    LightGreen,
+    Maroon,
+    Rose,
+    Banana,
+    Gray,
+    Tan,
+    Coral
+}

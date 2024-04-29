@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouthwash Colliders</title>
+    <style>
+        #container {
+            display: flex;
+        }
+
+        #all-lines {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas width="800" height="800" id="game"></canvas>
+        <textarea cols="40" rows="40" id="json-input"></textarea>
+        <div id="all-lines">
+
+        </div>
+    </div>
+    
+    <script>
+        const allLines = document.getElementById("all-lines");
+        if (allLines === null) throw new Error("Could not get lines");
+
+        let selectedLines = new Set;
+
+        /**
+         * @type {HTMLInputElement|null}
+         **/ 
+        const jsonInput = document.getElementById("json-input");
+        let json = JSON.parse(jsonInput.value);
+        if (jsonInput === null) throw new Error("Could not get JSON input");
+        jsonInput.addEventListener("input", ev => {
+            selectedLines = new Set;
+            try {
+                json = JSON.parse(jsonInput.value);
+
+                for (const child of allLines.children) {
+                    allLines.removeChild(child);
+                }
+                for (let i = 0; i < json.length; i++) {
+                    const line = json[i];
+
+                    const div = document.createElement("div");
+                    div.style.display = "flex";
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    const label = document.createElement("span");
+                    label.innerText = "Line " + i;
+
+                    div.appendChild(checkbox);
+                    div.appendChild(label);
+                    
+                    allLines.appendChild(div);
+
+                    checkbox.addEventListener("change", ev => {
+                        if (checkbox.checked) {
+                            selectedLines.add(i);
+                        } else {
+                            selectedLines.delete(i);
+                        }
+                    });
+                }
+            } catch (e) {
+                json = [];
+                console.log(e);
+            }
+        });
+
+        /**
+         * @type {HTMLCanvasElement|null}
+         **/
+        const canvas = document.getElementById("game");
+        if (canvas === null) throw new Error("Could not get canvas");
+        const ctx = canvas.getContext("2d");
+        if (ctx === null) throw new Error("Could not get canvas renderer context");
+
+        /**
+         * @param {number} x
+         * @param {number} y
+         */
+        function resolvePoint(x, y) {
+            return {
+                x: (canvas.width / 2) + (x / 50 * canvas.width),
+                y: (canvas.height / 2) + (-y / 50 * canvas.height)
+            };
+        }
+
+        function refresh() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < json.length; i++) {
+                const line = json[i];
+                const isSelected = selectedLines.has(i);
+                ctx.strokeStyle = isSelected ? "#0000ff" : "#00ff00";
+                ctx.beginPath();
+                for (let i = 0; i < line.length; i++) {
+                    const pt = line[i];
+                    const res = resolvePoint(pt.x, pt.y);
+                    if (i === line.length) {
+                        ctx.moveTo(res.x, res.y);
+                    } else {
+                        ctx.lineTo(res.x, res.y);
+                    }
+                }
+                ctx.stroke();
+            }
+            requestAnimationFrame(refresh);
+        }
+        requestAnimationFrame(refresh);
+    </script>
+</body>
+</html>

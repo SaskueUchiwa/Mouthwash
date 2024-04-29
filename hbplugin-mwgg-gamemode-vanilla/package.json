@@ -1,0 +1,20 @@
+{
+    "name": "hbplugin-mwgg-gamemode-vanilla",
+    "license": "SSPL-1.0",
+    "packageManager": "yarn@3.0.0-rc.13",
+    "main": "./dist/index.js",
+    "private": true,
+    "scripts": {
+        "build": "tsc -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "typescript": "latest"
+    },
+    "dependencies": {
+        "@skeldjs/hindenburg": "workspace:*",
+        "hbplugin-mouthwashgg-anti-cheat": "workspace:*",
+        "hbplugin-mouthwashgg-api": "workspace:*",
+        "mouthwash-types": "workspace:*"
+    }
+}

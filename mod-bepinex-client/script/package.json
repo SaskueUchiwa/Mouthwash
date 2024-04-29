@@ -1,0 +1,9 @@
+{
+  "name": "script",
+  "packageManager": "yarn@3.6.3",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "got": "^11.8.2",
+    "jszip": "^3.10.1"
+  }
+}

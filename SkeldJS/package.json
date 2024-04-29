@@ -1,0 +1,49 @@
+{
+  "name": "skeldjs",
+  "description": "A JavaScript implementation of the Among Us protocol, featuring several different projects, written in TypeScript.",
+  "keywords": [
+    "amongus",
+    "among us"
+  ],
+  "homepage": "https://skeld.js.org",
+  "bugs": "https://github.com/SkeldJS/SkeldJS/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SkeldJS/SkeldJS.git"
+  },
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "Edward Smale",
+    "email": "essmale2005@gmail.com",
+    "url": "https://weakeyes.dev"
+  },
+  "engines": {
+    "node": ">=14.x"
+  },
+  "private": true,
+  "scripts": {
+    "lint": "eslint \"packages/**/*.ts\"",
+    "fix": "eslint --fix \"packages/**/*.ts\"",
+    "build-all": "yarn workspaces foreach -ptv --exclude test run build",
+    "update:patch": "yarn workspaces foreach -v --exclude test version patch",
+    "update:minor": "yarn workspaces foreach -v --exclude test version minor",
+    "update:major": "yarn workspaces foreach -v --exclude test version major"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.1",
+    "@types/rimraf": "^3",
+    "@types/source-map-support": "^0",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "@yarnpkg/pnpify": "^3.0.0-rc.3",
+    "eslint": "^8.49.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "latest",
+    "typescript": "latest"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "2.14.35",
+  "packageManager": "yarn@3.6.3"
+}

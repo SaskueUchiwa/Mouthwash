@@ -1,0 +1,118 @@
+{
+    "clusterName": "Capybara",
+    "nodeId": 0,
+    "checkForUpdates": true,
+    "autoUpdate": false,
+    "exitConfirmation": true,
+    "defaultLanguage": "en",
+    "acceptedVersions": [
+        "2023.5.20.0"
+    ],
+    "matchmaker": false,
+    "socket": {
+        "port": 22023,
+        "additionalPorts": [],
+        "acceptUnknownGameData": false,
+        "messageOrdering": false,
+        "ip": "127.0.0.1",
+        "useDtlsLayout": false
+    },
+    "rateLimit": {
+        "maxPacketSizeBytes": 4096,
+        "windowReliableMs": 4000,
+        "reliableNum": 20,
+        "windowUnreliableMs": 1000,
+        "unreliableNum": 10,
+        "warningsWindowMs": 120000,
+        "maxWarnings": 3
+    },
+    "gameListing": {
+        "ignorePrivacy": false,
+        "ignoreSearchTerms": false,
+        "maxResults": 10,
+        "requirePefectMatches": false
+    },
+    "plugins": {
+        "loadDirectory": true,
+        "hbplugin-mouthwashgg-auth": {
+            "baseUrl": "https://urban-space-fortnight-jjr4gjwpjpr63p9r9-8000.app.github.dev:8000"
+        },
+        "hbplugin-mouthwashgg-master": false,
+        "hbplugin-mouthwashgg": true,
+        "hbplugin-mouthwashgg-anti-cheat": false,
+        "hbplugin-mouthwashgg-api": true,
+        "hbplugin-mouthwashgg-metrics": true,
+        "hbplugin-mwgg-map-submerged": true,
+        "hbplugin-mwgg-map-submerged-register": true,
+        "hbplugin-mwgg-gamemode-hns": false,
+        "hbplugin-mwgg-gamemode-infected": false,
+        "hbplugin-mwgg-gamemode-town-of-polus": false,
+        "hbplugin-mwgg-gamemode-vanilla": false
+    },
+    "anticheat": {
+        "penalty": {
+            "action": "disconnect",
+            "strikes": 2,
+            "banAfterXDisconnects": 3,
+            "banDuration": 3600,
+            "disconnectMessage": "You have been banned for $duration."
+        },
+        "rules": {}
+    },
+    "reactor": true,
+    "logging": {
+        "hideSensitiveInfo": false,
+        "connections": {
+            "format": [
+                "id",
+                "ip",
+                "ping",
+                "room"
+            ]
+        },
+        "rooms": {
+            "format": [
+                "players",
+                "map",
+                "issaah",
+                "privacy"
+            ]
+        },
+        "players": {
+            "format": [
+                "id",
+                "ping",
+                "ishost"
+            ]
+        }
+    },
+    "rooms": {
+        "checkChatMode": false,
+        "chatCommands": true,
+        "plugins": {
+            "loadDirectory": true
+        },
+        "gameCodes": "v2",
+        "enforceSettings": {},
+        "serverAsHost": true,
+        "advanced": {
+            "unknownObjects": false
+        },
+        "serverPlayer": {
+            "name": "<color=yellow>[Server]</color>",
+            "color": "Yellow",
+            "hat": 0,
+            "skin": 0
+        },
+        "createTimeout": 10
+    },
+    "optimizations": {
+        "movement": {
+            "reuseBuffer": true,
+            "updateRate": 1,
+            "visionChecks": false,
+            "deadChecks": true
+        },
+        "disablePerspectives": false
+    }
+}
